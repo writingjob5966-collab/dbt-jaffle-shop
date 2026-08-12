@@ -1,0 +1,20 @@
+{
+    "sqltools.useNodeRuntime": true,
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.parquet": "duckdb.dataFileViewer",
+        "*.csv": "duckdb.dataFileViewer",
+        "*.tsv": "duckdb.dataFileViewer",
+        "*.xlsx": "duckdb.dataFileViewer"
+    },
+    "duckdb.databases": [
+        {
+            "alias": "jaffle_shop",
+            "type": "file",
+            "path": "/home/quazi/dbt-learn/jaffle_shop_duckdb/jaffle_shop.duckdb",
+            "attached": true
+        }
+    ],
+    "duckdb.defaultDatabase": "jaffle_shop",
+    "dbt.dbtPythonPathOverride": ""
+}
