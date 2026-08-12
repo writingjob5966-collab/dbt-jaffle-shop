@@ -1,0 +1,1 @@
+SELECT SUM(lifetime_value) FROM dim_customers;

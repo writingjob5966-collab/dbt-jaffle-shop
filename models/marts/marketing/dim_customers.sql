@@ -10,6 +10,9 @@ orders as (
 
 ),
 
+payments as (
+    select * from {{ ref('stg_stripe__payments') }}
+),
 customer_orders as (
 
     select
@@ -19,10 +22,19 @@ customer_orders as (
         max(order_date) as most_recent_order_date,
         count(order_id) as number_of_orders
 
-    from {{ ref('orders') }}
-
+    from orders
     group by 1
 
+),
+
+-- NEW: Calculate lifetime value per customer
+customer_lifetime as (
+    select
+        orders.customer_id,
+        sum(payments.amount) as lifetime_value
+    from orders
+    left join payments using (order_id)
+    group by 1
 ),
 
 final as (
@@ -34,12 +46,12 @@ final as (
         customer_orders.first_order_date,
         customer_orders.most_recent_order_date,
         coalesce (customer_orders.number_of_orders, 0) 
-        as number_of_orders
+        as number_of_orders, customer_lifetime.lifetime_value
 
-    from {{ ref('customers') }}
+    from customers
 
     left join customer_orders using (customer_id)
-
+    left join customer_lifetime using (customer_id)
 )
 
 select * from final
