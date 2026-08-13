@@ -29,3 +29,4 @@ dbt-env/
 *.duckdb
 target/
 logs/
+seeds/
