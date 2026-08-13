@@ -1,4 +1,4 @@
-name: 'my_jaffle_shop'
+name: 'jaffle_shop'
 
 config-version: 2
 version: '0.1'
@@ -19,12 +19,14 @@ clean-targets:
 
 require-dbt-version: [">=1.11.0", "<2.0.0"]
 
-seeds: 
-  +docs:
-    node_color: '#cd7f32'
+seeds:
+  jaffle_shop:
+    +docs:
+      node_color: '#cd7f32'
+    # raw_customers and raw_orders are now auto-detected
 
 models:
-  my_jaffle_shop:
+  jaffle_shop:
     +materialized: table
     staging:
       +materialized: view

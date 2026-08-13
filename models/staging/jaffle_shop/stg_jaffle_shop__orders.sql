@@ -1,7 +1,9 @@
 select
     id as order_id,
-    user_id as customer_id,
-    order_date,
-    status
-
-from {{ref('raw_orders')}} --from seeds
+    customer as customer_id,
+    ordered_at as order_date,
+    store_id,
+    subtotal,
+    tax_paid,
+    order_total
+from {{ source('jaffle_shop', 'raw_orders') }}
