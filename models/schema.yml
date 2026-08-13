@@ -41,6 +41,6 @@ models:
                 to: ref('dim_customers')
                 field: customer_id
       - name: amount
-        description: "Total order amount (from payments)"
+        description: "Total order amount (from order_total)"
         tests:
           - not_null
