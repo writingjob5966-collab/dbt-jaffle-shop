@@ -3,10 +3,89 @@ sources:
     schema: main
     tables:
       - name: raw_customers
+        columns:
+          - name: id
+            description: primary key
+            data_tests:
+              - unique
+              - not_null 
+          - name: name
+            description: name of the customer
+            data_tests:
+              - not_null
       - name: raw_order_items
+        columns:
+          - name: id
+            description: primary key
+            data_tests:
+              - unique
+              - not_null
+          - name: order_id
+            description: not unique or primary
+            data_tests:
+              - not_null
+          - name: sku
+            description: not unique or primary
+            data_tests:
+              - not_null
       - name: raw_products
+        columns:
+          - name: sku
+            description: primary key
+            data_tests:
+              - unique
+              - not_null
+          - name: name
+            description: name of the product
+            data_tests:
+              - not_null
+          - name: type
+            description: item type either jaffle or beverage
+            data_tests:
+              - accepted_values:
+                  arguments:
+                    values:
+                      - jaffle
+                      - beverage
+
       - name: raw_stores
+        columns:
+          - name: id
+            description: primary key
+            data_tests:
+              - unique
+              - not_null
+          - name: name
+            description: name of the store
+            data_tests:
+              - not_null
+          - name: tax_rate
+            description: tax_rate of the product
+            data_tests:
+              - not_null
       - name: raw_supplies
+        columns:
+          - name: id
+            description: not unique or primary
+            data_tests:
+              - not_null
+          - name: name
+            description: name of the product
+            data_tests:
+              - not_null
+          - name: perishable
+            description: item perishable or not true/false)
+            data_tests:
+              - accepted_values:
+                  arguments:
+                    values:
+                      - true
+                      - false
+          - name: sku
+            description: not unique or primary
+            data_tests:
+              - not_null
+
       - name: raw_orders
         config:
           freshness:
@@ -17,3 +96,17 @@ sources:
               count: 365000
               period: day # Never fail at a leraning project
           loaded_at_field: ordered_at 
+        columns:    
+          - name: id
+            description: primary_key
+            data_tests:
+              - not_null
+              - unique
+          - name: customer
+            description: id of customer, not unique
+            data_tests:
+              - not_null
+          - name: store_id
+            description: id of the store, not unique
+            data_tests:
+              - not_null
