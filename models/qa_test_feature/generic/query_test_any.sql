@@ -1,2 +1,1 @@
-SELECT order_id FROM stg_jaffle_shop__orders LIMIT 5
-
+SELECT distinct type FROM stg_jaffle_shop__products 
