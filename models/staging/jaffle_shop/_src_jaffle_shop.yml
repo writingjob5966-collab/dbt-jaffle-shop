@@ -40,7 +40,7 @@ sources:
             data_tests:
               - not_null
           - name: type
-            description: item type either jaffle or beverage
+            description: "{{ doc('raw_products') }}"
             data_tests:
               - accepted_values:
                   arguments:
