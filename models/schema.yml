@@ -44,3 +44,4 @@ models:
         description: "Total order amount (from order_total)"
         tests:
           - not_null
+
