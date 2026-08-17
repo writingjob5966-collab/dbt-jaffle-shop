@@ -30,3 +30,5 @@ dbt-env/
 target/
 logs/
 seeds/
+# VS Code / VSCodium workspace settings
+.vscode/

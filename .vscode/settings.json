@@ -16,7 +16,7 @@
         }
     ],
     "duckdb.defaultDatabase": "jaffle_shop",
-    "dbt.dbtPythonPathOverride": "",
+    "dbt.dbtPythonPathOverride": "/var/home/quazi/dbt-learn/jaffle_shop_duckdb/dbt-env-311/bin/python3",
     "dbt.deferConfigPerProject": {
         "": {
             "manifestPathForDeferral": "/home/quazi/dbt-learn/jaffle_shop_duckdb/models/staging/jaffle_shop/",
