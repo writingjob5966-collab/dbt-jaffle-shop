@@ -24,6 +24,11 @@ seeds:
     +docs:
       node_color: '#cd7f32'
     # raw_customers and raw_orders are now auto-detected
+    raw_orders:
+      +column_types:
+        order_total: numeric(10, 2)
+        subtotal: numeric(10, 2)
+        tax_paid: numeric(10, 2)
 
 models:
   jaffle_shop:

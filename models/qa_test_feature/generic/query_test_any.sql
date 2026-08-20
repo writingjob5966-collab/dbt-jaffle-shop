@@ -1,8 +1,3 @@
-SELECT order_id,
-       count(*) as total_orders
+SELECT *
 
-FROM stg_jaffle_shop__order_items
-
-GROUP BY order_id
-
-HAVING total_orders > 1
+FROM raw_orders

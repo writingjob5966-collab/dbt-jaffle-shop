@@ -1,0 +1,11 @@
+# macros/schema.yml
+
+version: 2
+
+macros:
+  - name: format_decimal
+    description: "Cast a column to a numeric with exactly 2 decimal places."
+    arguments:
+      - name: column_name
+        type: column
+        description: "The name of the column to format. Can be any numeric type (integer, float, decimal)."
